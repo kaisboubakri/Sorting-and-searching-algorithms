@@ -1,0 +1,50 @@
+program InsertionSort;
+
+// Procedure to perform insertion sort on an array of integers
+procedure InsertionSort(var T: array of Integer; n : integer);
+var
+  i, j, key: Integer;
+begin
+  for i := 1 to n - 1 do
+  begin
+    key := T[i];
+    j := i - 1;
+
+
+    // Move elements greater than the key to the right
+    while (j >= 0) and (key < T[j]) do
+    begin
+      T[j + 1] := T[j];
+      j := j - 1;
+    end;
+
+    // Place the key in its correct position
+    T[j + 1] := key;
+  end;
+end;
+
+var
+  T: array[0..20] of Integer;
+  i,n: Integer;
+begin
+//insert table length
+writeln('taille de tableau :');
+readln(n);
+
+// Input the elements of the array
+for i := 0 to n-1 do
+begin
+write('T[ ',i+1,' ] =');
+readln(T[i]);
+ end;
+
+
+ // Call the InsertionSort procedure to sort the array
+  InsertionSort(T,n);
+
+  writeln('Sorted array:');
+  for i := 0 to n-1 do
+    writeln(T[i]);
+end.
+
+
